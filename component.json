@@ -1,0 +1,16 @@
+{
+  "name": "tree-each",
+  "repo": "jkroso/tree-each",
+  "description": "forEach for trees",
+  "version": "0.1.0",
+  "keywords": ["dom","tree","each","forEach","iterate"],
+  "development": {
+    "chaijs/chai": "1.6.0" 
+  },
+  "scripts": [
+    "index.js",
+    "depth.js",
+	  "up.js"
+  ],
+  "license": "MIT"
+}

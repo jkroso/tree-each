@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+<head>
+	<style>
+		.hidden {
+			padding: 50px;
+			border-radius: 3px;
+			margin: 5px;
+			border: 1px solid #ccc;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		<div class="hidden">1</div>
+		<div class="hidden">2</div>
+		<div>
+			<div class="hidden">3</div>
+			<div class="hidden">4</div>
+		</div>
+	</div>
+	<script>
+		var depth = require('../depth')
+		var each = depth('children')
+
+		function filter(el, fn, ctx){
+			var res = []
+			each(el, function(el){
+				if (fn(el)) res.push(el)
+			}, ctx)
+			return res
+		}
+
+		console.log(filter(document.body, function(el){
+			return el.webkitMatchesSelector('.hidden')
+		}))
+		console.log(document.body.querySelectorAll('.hidden'))
+	</script>
+</body>
+</html>

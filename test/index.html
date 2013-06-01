@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head>
+	<title>tree-each tests</title>
+	<link rel="stylesheet" href="../node_modules/mocha/mocha.css">
+</head>
+<body>
+	<div id="mocha"></div>
+	<div id="test" style="display:none;">
+		<div>
+			<div>
+				<p>hello test</p>
+			</div>
+		</div>
+	</div>
+	<script>
+		var mocha = require('mocha')
+
+		mocha.setup('bdd')
+
+		require('./tree-each.test.js')
+
+		mocha.run(function(){
+			console.log('Done!')
+		})
+	</script>
+</body>
+</html>

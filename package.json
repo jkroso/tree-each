@@ -1,0 +1,19 @@
+{
+  "name": "tree-each",
+  "version": "0.1.0",
+  "description": "forEach for trees",
+  "dependencies": {
+    "serve": "http://github.com/jkroso/serve/tarball/1.2.2",
+    "mocha": "*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/jkroso/tree-each.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jkroso/tree-each/issues"
+  },
+  "keywords": ["dom","tree","each","forEach","iterate"],
+  "author": "Jake Rosoman",
+  "license": "MIT"
+}
