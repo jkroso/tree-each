@@ -1,17 +1,21 @@
 
+var curryable = require('curryable')
+
+module.exports = curryable(down, -1)
+
 /**
- * create a depth first tree walker
+ * iterate a tree depth first along `path` from `node`
  * 
  * @param {String} path
- * @return {Function} walk
+ * @param {Object} node
+ * @param {Function} fn
+ * @param {Any} [context]
  */
 
-module.exports = function(path){
-	return function walk(el, fn, ctx){
-		var children = el[path];
-		if (children) for (var i = 0, len = children.length; i < len; i++) {
-			walk(children[i], fn, ctx);
-		}
-		fn.call(ctx, el);
+function down(path, node, fn, ctx){
+	var children = node[path]
+	if (children) for (var i = 0, len = children.length; i < len; i++) {
+		down(path, children[i], fn, ctx)
 	}
+	fn.call(ctx, node)
 }

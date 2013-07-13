@@ -1,10 +1,9 @@
 {
   "name": "tree-each",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "forEach for trees",
   "dependencies": {
-    "serve": "http://github.com/jkroso/serve/tarball/1.2.2",
-    "mocha": "*"
+    "curryable": "0.1.1"
   },
   "repository": {
     "type": "git",

@@ -1,8 +1,8 @@
 
 var chai = require('./chai')
+  , breadth = require('../breadth')
   , depth = require('../depth')
   , up = require('../up')
-  , breadth = require('../breadth')
 
 var tree = {
 	children: [
