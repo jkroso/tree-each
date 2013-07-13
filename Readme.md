@@ -17,43 +17,37 @@ var treach = require('tree-each')
 
 ## API
 
-- [depth()](#depth)
-- [breadth()](#breadth)
-- [up()](#up)
+- [depth()](#depthpathstring-nodeobject-fnfunction-contextany)
+- [breadth()](#breadthpathstring-nodeobject-fnfunction-contextany)
+- [up()](#uppathstring-nodeobject-fnfunction-contextany)
 
-### depth(path:String)
+### depth(path:String, node:Object, fn:Function, [context]:Any)
 
-  create a depth first tree walker
+  iterate a tree breadth first along `path` from `node`
   
-### breadth(path:String)
+### breadth(path:String, node:Object, fn:Function, [context]:Any)
 
-  create a breadth first tree walker
+  iterate a tree depth first along `path` from `node`
 
-### up(path:String)
-
-  create a tree climber
-
-  All of the generated functions have the same API the only difference is the order they iterate elements in.
-
-### each(el:Object, fn:Function, [ctx]:Object)
-
-  applies `fn` to `el` and each item found on `path`
+### up(path:String, node:Object, fn:Function, [context]:Any)
+  
+  walk up `path` from `node`
 
 ## example
 
-  each can be used to define other higher order functions that operate over trees. Here we define `filter` and use it to emulate `document.body.querySelectorAll`
+  each can be used to define other higher order functions that operate over trees. Here we define `filter` and use it to emulate `document.body.querySelectorAll`. Note the use of currying to keep noise to a minimum inside `filter`. All functions in this package have been made [curryable](//github.com/jkroso/curryable).
 
 ```js
-var each = treach.depth('children')
+var each = depthFirst('children')
 function filter(el, fn, ctx){
-	var res = []
-	each(el, function(el){
-		if (fn(el)) res.push(el)
-	}, ctx)
-	return res
+  var res = []
+  each(el, function(el){
+    if (fn(el)) res.push(el)
+  }, ctx)
+  return res
 }
 filter(document.body, function(el){
-	return el.matchesSelector('.hidden')
+  return el.matchesSelector('.hidden')
 }) // => [ Element ]
 ```
 
