@@ -12,8 +12,7 @@ module.exports = curryable(up, -1)
  * @param {Any} [context]
  */
 
-function up(path, el, fn, ctx){
-	fn.call(ctx, el)
-	var parent = el[path]
-	if (parent) up(path, parent, fn, ctx)
+function up(path, node, fn, ctx){
+	do { fn.call(ctx, node) }
+	while (node = node[path])
 }
